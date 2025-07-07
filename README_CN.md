@@ -63,6 +63,9 @@ bochs -f bochsrc
 make clean
 ```
 
+## 名字来源
+Winx is not Unix (Winx不是Unix)
+
 ## 贡献方式
 欢迎提交 issue 或 pull request 参与开发。建议遵循如下流程：
 1. Fork 本仓库
@@ -70,4 +73,4 @@ make clean
 3. 提交 PR 并描述修改内容
 
 ## 许可证
-本项目采用 MIT 许可证，详见 LICENSE 文件。 
+本项目采用 GPLv3 许可证，详见 LICENSE 文件。 

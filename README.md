@@ -65,6 +65,9 @@ bochs -f bochsrc
 make clean
 ```
 
+## Naming
+Winx is not Unix
+
 ## Contributing
 Feel free to submit issues or pull requests. Recommended workflow:
 1. Fork this repo
@@ -72,4 +75,4 @@ Feel free to submit issues or pull requests. Recommended workflow:
 3. Submit a PR with a description of your changes
 
 ## License
-This project is licensed under the MIT License. See LICENSE for details. 
+This project is licensed under the GPLv3 License. See LICENSE for details. 
