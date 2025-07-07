@@ -48,7 +48,7 @@ Winx/
 
 ### Build
 ```bash
-make
+make build
 ```
 
 ### Run (Bochs example)
