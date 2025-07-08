@@ -1,5 +1,3 @@
-
-
 #ifndef __FS_FILE_H
 #define __FS_FILE_H
 
@@ -10,9 +8,9 @@
 #define MAX_FILE_OPEN 32
 
 struct file {
-    uint32_t fd_pos;
-    uint32_t fd_flag;
-    struct inode *fd_inode;
+  uint32_t fd_pos;
+  uint32_t fd_flag;
+  struct inode *fd_inode;
 };
 
 enum std_fd { stdin_no, stdout_no, stderr_no };

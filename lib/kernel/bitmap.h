@@ -1,10 +1,12 @@
 #ifndef __LIB_KERNEL_BITMAP_H
 #define __LIB_KERNEL_BITMAP_H
+
 #include "global.h"
+
 #define BITMAP_MASK 1
 struct bitmap {
-    uint32_t btmp_bytes_len;
-    uint8_t *bits;
+  uint32_t btmp_bytes_len;
+  uint8_t *bits;
 };
 
 void bitmap_init(struct bitmap *btmp);

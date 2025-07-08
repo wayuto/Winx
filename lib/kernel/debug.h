@@ -1,5 +1,6 @@
 #ifndef __KERNEL_DEBUG_H
 #define __KERNEL_DEBUG_H
+
 void panic_spin(char *filename, int line, const char *func,
                 const char *condition);
 
@@ -8,11 +9,11 @@ void panic_spin(char *filename, int line, const char *func,
 #ifdef NDEBUG
 #define ASSERT(CONDITION) ((void)0)
 #else
-#define ASSERT(CONDITION)  \
-    if (CONDITION) {       \
-    } else {               \
-        PANIC(#CONDITION); \
-    }
+#define ASSERT(CONDITION)                                                      \
+  if (CONDITION) {                                                             \
+  } else {                                                                     \
+    PANIC(#CONDITION);                                                         \
+  }
 
 #endif
 #endif

@@ -1,4 +1,3 @@
-
 #ifndef __FS_FS_H
 #define __FS_FS_H
 
@@ -18,15 +17,15 @@ enum oflags { O_RDONLY, O_WRONLY, O_RDWR, O_CREAT = 4 };
 enum whence { SEEK_SET = 1, SEEK_CUR, SEEK_END };
 
 struct path_search_record {
-    char searched_path[MAX_PATH_LEN];
-    struct dir *parent_dir;
-    enum file_types file_type;
+  char searched_path[MAX_PATH_LEN];
+  struct dir *parent_dir;
+  enum file_types file_type;
 };
 
 struct stat {
-    uint32_t st_ino;
-    uint32_t st_size;
-    enum file_types st_filetype;
+  uint32_t st_ino;
+  uint32_t st_size;
+  enum file_types st_filetype;
 };
 
 extern struct partition *cur_part;

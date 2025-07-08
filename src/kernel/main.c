@@ -12,24 +12,23 @@
 void init(void);
 
 int main(void) {
-    put_str("Welcome to Winx!\n");
-    init_all();
-    thread_exit(running_thread(), true);
-    return 0;
+  put_str("Welcome to Winx!\n");
+  init_all();
+  thread_exit(running_thread(), true);
+  return 0;
 }
 
 void init(void) {
-    uint32_t ret_pid = fork();
-    if (ret_pid) {
-        int status;
-        int child_pid;
-        while (1) {
-            child_pid = wait(&status);
-            printf("Recieved a thread\nPID: %d\nStatus: %d\n", child_pid,
-                   status);
-        }
-    } else {
-        my_shell();
+  uint32_t ret_pid = fork();
+  if (ret_pid) {
+    int status;
+    int child_pid;
+    while (1) {
+      child_pid = wait(&status);
+      printf("Recieved a thread\nPID: %d\nStatus: %d\n", child_pid, status);
     }
-    panic("init: should not be here");
+  } else {
+    my_shell();
+  }
+  panic("init: should not be here");
 }

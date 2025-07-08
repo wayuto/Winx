@@ -10,10 +10,10 @@ void user_spin(char *filename, int line, const char *func,
 #ifdef NDEBUG
 #define assert(CONDITION) ((void)0)
 #else
-#define assert(CONDITION)  \
-    if (!(CONDITION)) {    \
-        panic(#CONDITION); \
-    }
+#define assert(CONDITION)                                                      \
+  if (!(CONDITION)) {                                                          \
+    panic(#CONDITION);                                                         \
+  }
 
 #endif
 #endif

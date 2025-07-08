@@ -1,12 +1,13 @@
 #ifndef __KERNEL_MEMORY_H
 #define __KERNEL_MEMORY_H
+
 #include "bitmap.h"
 #include "list.h"
 #include "stdint.h"
 
 struct virtual_addr {
-    struct bitmap vaddr_bitmap;
-    uint32_t vaddr_start;
+  struct bitmap vaddr_bitmap;
+  uint32_t vaddr_start;
 };
 
 extern struct pool kernel_pool, user_pool;
@@ -22,13 +23,13 @@ void mem_init(void);
 enum pool_flags { PF_KERNEL = 1, PF_USER = 2 };
 
 struct mem_block {
-    struct list_elem free_elem;
+  struct list_elem free_elem;
 };
 
 struct mem_block_desc {
-    uint32_t block_size;
-    uint32_t blocks_per_arena;
-    struct list free_list;
+  uint32_t block_size;
+  uint32_t blocks_per_arena;
+  struct list free_list;
 };
 
 #define DESC_CNT 7
