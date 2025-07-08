@@ -10,6 +10,7 @@ SRC_FS         := $(SRC)/fs
 SRC_SHELL      := $(SRC)/shell
 SRC_IMPL       := $(SRC)/impl
 SRC_USER       := $(SRC)/user
+SRC_TAU        := $(SRC)/tau
 BUILD_BOOT     := $(BUILD)/boot
 BUILD_DEVICE   := $(BUILD)/device
 BUILD_KERNEL   := $(BUILD)/kernel
@@ -23,7 +24,7 @@ BUILD_USER     := $(BUILD)/user
 CC             := i686-elf-gcc
 AS             := nasm
 ASFLAGS        := -I $(SRC_BOOT) -f bin
-CFLAGS         := -c -m32 -I $(SRC_LIB) -I $(SRC_LIB)/kernel -I $(SRC_LIB)/device -I $(SRC_LIB)/thread -I $(SRC_LIB)/userprog -I $(SRC_LIB)/shell -I $(SRC_LIB)/user -I $(SRC_LIB)/fs -I $(SRC_DEVICE) -I $(SRC_THREAD) -I $(SRC_USERPROG) -fno-stack-protector -fno-builtin -nostdlib
+CFLAGS         := -c -m32 -I $(SRC_LIB) -I $(SRC_LIB)/kernel -I $(SRC_LIB)/device -I $(SRC_LIB)/thread -I $(SRC_LIB)/userprog -I $(SRC_LIB)/shell -I $(SRC_LIB)/user -I $(SRC_LIB)/fs -fno-stack-protector -fno-builtin -nostdlib
 LDFLAGS        := -Ttext 0xc0001500 -e main -m elf_i386
 
 KERNEL_OBJS := \
@@ -102,6 +103,10 @@ $(BUILD_IMPL)/%.o: $(SRC_IMPL)/%.c
 	$(CC) $(CFLAGS) $< -o $@
 
 $(BUILD_USER)/%.o: $(SRC_USER)/%.c
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $< -o $@
+
+$(BUILD_TAU)/%.o: $(SRC_TAU)/%.c
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $< -o $@
 

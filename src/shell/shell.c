@@ -3,7 +3,6 @@
 #include "assert.h"
 #include "builtin_cmd.h"
 #include "file.h"
-#include "print.h"
 #include "stdio.h"
 #include "string.h"
 #include "syscall.h"
@@ -17,7 +16,7 @@ static char cmd_line[cmd_len] = {0};
 
 void print_prompt(void) { printf("[wayuto@winx %s]# ", cwd_cache); }
 
-static void readline(char *buf, int32_t count) {
+void readline(char *buf, int32_t count) {
   assert(buf != NULL && count > 0);
   char *pos = buf;
 
@@ -108,7 +107,7 @@ static int is_builtin(const char *cmd) {
          !strcmp(cmd, "clear") || !strcmp(cmd, "mkdir") ||
          !strcmp(cmd, "rmdir") || !strcmp(cmd, "rm") || !strcmp(cmd, "touch") ||
          !strcmp(cmd, "cat") || !strcmp(cmd, "echo") || !strcmp(cmd, "help") ||
-         !strcmp(cmd, "putin");
+         !strcmp(cmd, "putin") || !strcmp(cmd, "ed") || !strcmp(cmd, "calc");
 }
 
 static void run_builtin(uint32_t argc, char **argv) {
@@ -136,6 +135,8 @@ static void run_builtin(uint32_t argc, char **argv) {
     builtin_help(argc, argv);
   } else if (!strcmp("putin", argv[0])) {
     builtin_putin(argc, argv);
+  } else if (!strcmp("ed", argv[0])) {
+    builtin_ed(argc, argv);
   }
 }
 

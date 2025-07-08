@@ -1,11 +1,11 @@
 #include "builtin_cmd.h"
 
-#include <stdint.h>
-
 #include "assert.h"
 #include "dir.h"
+#include "editor.c"
 #include "fs.h"
 #include "shell.h"
+#include "stdint.h"
 #include "stdio.h"
 #include "string.h"
 #include "syscall.h"
@@ -336,6 +336,7 @@ void builtin_help(uint32_t argc UNUSED, char **argv UNUSED) {
        clear: clear screen\n\
        cat: read and print file content\n\
        putin: append text to file\n\
+       ed: a simple text editor\n\
        help: show this help message\n\
    shortcut key:\n\
        ctrl+l: clear screen\n\
@@ -364,4 +365,8 @@ int32_t builtin_putin(uint32_t argc, char **argv) {
   write(fd, argv[2], strlen(argv[2]));
   close(fd);
   return 0;
+}
+
+int32_t builtin_ed(uint32_t argc, char **argv) {
+  return editor_main(argc, argv);
 }

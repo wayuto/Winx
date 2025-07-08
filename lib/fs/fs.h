@@ -9,6 +9,7 @@
 #define SECTOR_SIZE 512
 #define BLOCK_SIZE 512
 #define MAX_PATH_LEN 512
+#define O_TRUNC 8
 
 enum file_types { FT_UNKNOWN, FT_REGULAR, FT_DIRECTORY };
 

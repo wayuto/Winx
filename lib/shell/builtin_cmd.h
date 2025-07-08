@@ -17,5 +17,8 @@ void builtin_help(uint32_t argc UNUSED, char **argv UNUSED);
 int32_t builtin_touch(uint32_t argc, char **argv);
 int32_t builtin_cat(uint32_t argc, char **argv);
 int32_t builtin_putin(uint32_t argc, char **argv);
+int32_t builtin_edit(uint32_t argc, char **argv);
+int32_t builtin_ed(uint32_t argc, char **argv);
+int32_t builtin_c4(uint32_t argc, char **argv);
 
 #endif
